@@ -1,0 +1,160 @@
+//Clear Form
+function ClearCell() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var FormS = ss.getSheetByName("Form"); //Form Sheet
+
+  var rangesToClear = ["C4","C5","C6","C7","C8","C9","C10","D14","D15","D16", "D17","D20","D21","D24","D25","D28","D29","D30", "F13","F19","G26","G27","G28","G29","G30","B37"];
+  for(var i=0; i<rangesToClear.length; i++) {FormS.getRange(rangesToClear[i]).clearContent();
+  }
+}
+
+//--------------------------------------------------------
+
+//Input Values
+function SubmitData() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet(); 
+  var FormS = ss.getSheetByName("Form"); //Data entry Sheet 
+  var dataS = ss.getSheetByName("RPS"); //Data Sheet 
+  
+  var values = [[FormS.getRange("C4").getValue(),
+                 FormS.getRange("C5").getValue(),
+                 FormS.getRange("C6").getValue(),
+                 FormS.getRange("C7").getValue(),
+                 FormS.getRange("C8").getValue(),
+                 FormS.getRange("C9").getValue(),
+                 FormS.getRange("C10").getValue(),
+                 FormS.getRange("D14").getValue(),
+                 FormS.getRange("D15").getValue(),
+                 FormS.getRange("D16").getValue(),
+                 FormS.getRange("D17").getValue(),
+                 FormS.getRange("G6").getValue(),
+                 FormS.getRange("D20").getValue(),
+                 FormS.getRange("D21").getValue(),
+                 FormS.getRange("G7").getValue(),
+                 FormS.getRange("D24").getValue(),
+                 FormS.getRange("D25").getValue(),
+                 FormS.getRange("G8").getValue(),
+                 FormS.getRange("D28").getValue(),
+                 FormS.getRange("D29").getValue(),
+                 FormS.getRange("D30").getValue(),
+                 FormS.getRange("G9").getValue(),
+                 FormS.getRange("F13").getValue(),
+                 FormS.getRange("F19").getValue(),
+                 FormS.getRange("G26").getValue(),
+                 FormS.getRange( "G27").getValue(),
+                 FormS.getRange("G28").getValue(),
+                 FormS.getRange("G29").getValue(),
+                 FormS.getRange("G30").getValue()]];
+  dataS.getRange(dataS.getLastRow()+1, 2, 1, 29).setValues(values);
+ClearCell();
+}
+
+//---------------------------------------------------------------------------------------------------------
+var SEARCH_COL_IDX = 0; 
+function Search() { 
+
+var ss = SpreadsheetApp.getActiveSpreadsheet(); 
+var FormS = ss.getSheetByName("Form"); //Form Sheet 
+
+var str = FormS.getRange("B37").getValue(); 
+var values = ss.getSheetByName("RPS").getDataRange().getValues(); 
+for (var i = 1; i < values.length; i++) { 
+  var row = values[i]; 
+  if (row[SEARCH_COL_IDX] == str) { 
+
+                FormS.getRange("C4").setValue(row[1]);
+                 FormS.getRange("C5").setValue(row[2]);
+                 FormS.getRange("C6").setValue(row[3]);
+                 FormS.getRange("C7").setValue(row[4]);
+                 FormS.getRange("C8").setValue(row[5]);
+                 FormS.getRange("C9").setValue(row[6]);
+                 FormS.getRange("C10").setValue(row[7]);
+                 FormS.getRange("D14").setValue(row[8]);
+                 FormS.getRange("D15").setValue(row[9]);
+                 FormS.getRange("D16").setValue(row[10]);
+                 FormS.getRange("D17").setValue(row[11]);
+                 FormS.getRange("D20").setValue(row[13]);
+                 FormS.getRange("D21").setValue(row[14]);
+                 FormS.getRange("D24").setValue(row[16]);
+                 FormS.getRange("D25").setValue(row[17]);
+                 FormS.getRange("D28").setValue(row[19]);
+                 FormS.getRange("D29").setValue(row[20]);
+                 FormS.getRange("D30").setValue(row[21]);
+                 FormS.getRange("F13").setValue(row[23]);
+                 FormS.getRange("F19").setValue(row[24]);
+                 FormS.getRange("G26").setValue(row[25]);
+                 FormS.getRange( "G27").setValue(row[26]);
+                 FormS.getRange("G28").setValue(row[27]);
+                 FormS.getRange("G29").setValue(row[28]);
+                 FormS.getRange("G30").setValue(row[29]);
+  } }}
+
+  //------------------------------------------------------------
+
+  function Update() { 
+    var ss = SpreadsheetApp.getActiveSpreadsheet(); 
+    var FormS = ss.getSheetByName("Form"); //Form Sheet 
+    var dataS = ss.getSheetByName("RPS"); //Data Sheet 
+
+    var str = FormS.getRange("B37").getValue(); 
+    var values = ss.getSheetByName("RPS").getDataRange().getValues(); 
+    for (var i = 0; i < values.length; i++) {
+      var row = values[i]; 
+      if (row[SEARCH_COL_IDX] == str) { 
+        var INT_R = i+1
+
+    var values1 = [[FormS.getRange("C4").getValue(),
+                 FormS.getRange("C5").getValue(),
+                 FormS.getRange("C6").getValue(),
+                 FormS.getRange("C7").getValue(),
+                 FormS.getRange("C8").getValue(),
+                 FormS.getRange("C9").getValue(),
+                 FormS.getRange("C10").getValue(),
+                 FormS.getRange("D14").getValue(),
+                 FormS.getRange("D15").getValue(),
+                 FormS.getRange("D16").getValue(),
+                 FormS.getRange("D17").getValue(),
+                 FormS.getRange("G6").getValue(),
+                 FormS.getRange("D20").getValue(),
+                 FormS.getRange("D21").getValue(),
+                 FormS.getRange("G7").getValue(),
+                 FormS.getRange("D24").getValue(),
+                 FormS.getRange("D25").getValue(),
+                 FormS.getRange("G8").getValue(),
+                 FormS.getRange("D28").getValue(),
+                 FormS.getRange("D29").getValue(),
+                 FormS.getRange("D30").getValue(),
+                 FormS.getRange("G9").getValue(),
+                 FormS.getRange("F13").getValue(),
+                 FormS.getRange("F19").getValue(),
+                 FormS.getRange("G26").getValue(),
+                 FormS.getRange( "G27").getValue(),
+                 FormS.getRange("G28").getValue(),
+                 FormS.getRange("G29").getValue(),
+                 FormS.getRange("G30").getValue()]];
+
+dataS.getRange(INT_R, 2, 1, 29).setValues(values1); SpreadsheetApp.getUi().alert(' "Data Updated "'); 
+} }} 
+
+//----------------------------------------------------------------
+
+function Delete() { 
+  var ss = SpreadsheetApp.getActiveSpreadsheet(); 
+  var FormS = ss.getSheetByName("Form"); //Form Sheet 
+  var dataS= ss.getSheetByName("RPS"); //Data Sheet 
+
+  var ui = SpreadsheetApp.getUi(); 
+  var response = ui.alert('Delete ?', ui.ButtonSet.YES_NO); 
+
+// Process the user's response. 
+if (response == ui.Button.YES) { 
+
+  var str = FormS.getRange("B37").getValue();
+  var values = ss.getSheetByName("RPS").getDataRange().getValues(); 
+  for (var i = 0; i < values.length; i++) { 
+  var row = values[i]; 
+  if (row[SEARCH_COL_IDX] == str) { 
+    var INT_R = i+1 
+dataS.deleteRow(INT_R) ; 
+ClearCell(); 
+}}} }
